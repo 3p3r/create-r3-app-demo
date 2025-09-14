@@ -26,8 +26,8 @@ export const remultDataProvider = (
         getList: async ({ resource, pagination, filters, sorters }) => {
             const repo = repoByKey(resource);
             const options: FindOptions<any> = {
-                page: (pagination?.current || 1) - 1,
-                limit: pagination?.pageSize
+                page: ((pagination as any)?.current || (pagination as any)?.page || 1) - 1,
+                limit: (pagination as any)?.pageSize || (pagination as any)?.size
             }
             if (sorters) {
                 options.orderBy = {};
@@ -74,7 +74,7 @@ export const remultDataProvider = (
                 data
             };
         },
-        custom: async ({ url, method, filters, sort, payload, query, headers }) => {
+        custom: async ({ url, method, filters, payload, query, headers }) => {
             throw Error("custom is not yet implemented, please open a ticket for it");
         }
     })

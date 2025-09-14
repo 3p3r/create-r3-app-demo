@@ -1,4 +1,4 @@
-import { AuthBindings } from "@refinedev/core";
+import { AuthProvider } from "@refinedev/core";
 import nookies from "nookies";
 
 const mockUsers = [
@@ -16,7 +16,7 @@ const mockUsers = [
   },
 ];
 
-export const authProvider: AuthBindings = {
+export const authProvider: AuthProvider = {
   login: async ({ email, username, password, remember }) => {
     // Suppose we actually send a request to the back end here.
     const user = mockUsers[0];

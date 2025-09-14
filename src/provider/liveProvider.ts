@@ -15,8 +15,8 @@ export const liveProvider = (entities: any[]): LiveProvider => {
         subscribe: ({ channel, types, params, callback }) => {
             const resource = channel.replace("resources/", "");
             const options: FindOptions<any> = {
-                page: (params?.pagination?.current || 1) - 1,
-                limit: params?.pagination?.pageSize
+                page: (((params?.pagination as any)?.current || (params?.pagination as any)?.page || 1) - 1),
+                limit: (params?.pagination as any)?.pageSize || (params?.pagination as any)?.size
             }
             if (params?.sorters) {
                 options.orderBy = {};
