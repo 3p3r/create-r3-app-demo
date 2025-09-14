@@ -1,7 +1,4 @@
 module.exports = {
-  experimental: {
-    newNextLinkBehavior: true,
-  },
   transpilePackages: [
     "@refinedev/antd",
     "@refinedev/inferencer",
