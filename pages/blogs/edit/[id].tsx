@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { authProvider } from "src/provider/authProvider";
 
 export default function BlogsEdit() {
-  return <AntdEditInferencer />;
+  return <AntdEditInferencer hideCodeViewerInProduction />;
 }
 
 export const getServerSideProps: GetServerSideProps<{}> = async (context) => {

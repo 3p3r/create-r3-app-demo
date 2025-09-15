@@ -1,7 +1,4 @@
 module.exports = {
-  turbopack: {
-    root: __dirname,
-  },
   output: "standalone",
   transpilePackages: [
     "@refinedev/antd",
