@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type JSX } from "react";
 import { AppProps } from "next/app";
 import type { NextPage } from "next";
 import { Refine, GitHubBanner } from "@refinedev/core";
