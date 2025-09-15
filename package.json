@@ -8,7 +8,6 @@
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.24.0",
     "@ant-design/icons": "^6.0.2",
     "@refinedev/antd": "^6.0.1",
     "@refinedev/cli": "^2.16.48",
@@ -16,9 +15,8 @@
     "@refinedev/inferencer": "^6.0.1",
     "@refinedev/kbar": "^2.0.0",
     "@refinedev/nextjs-router": "^7.0.0",
-    "@refinedev/simple-rest": "^6.0.0",
     "antd": "^5.27.3",
-    "next": "15.5.3",
+    "next": "^15.5.3",
     "nookies": "^2.5.2",
     "react-live": "^4.1.8",
     "remult": "^3.2.1"
@@ -27,9 +25,9 @@
     "@types/node": "^24.4.0",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
-    "@typescript-eslint/parser": "8.43.0",
+    "@typescript-eslint/parser": "^8.43.0",
     "cross-env": "^10.0.0",
-    "eslint-config-next": "15.5.3",
+    "eslint-config-next": "^15.5.3",
     "typescript": "^5.9.2"
   }
 }
