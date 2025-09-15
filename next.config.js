@@ -1,7 +1,5 @@
 module.exports = {
-  experimental: {
-    newNextLinkBehavior: true,
-  },
+  output: "standalone",
   transpilePackages: [
     "@refinedev/antd",
     "@refinedev/inferencer",
@@ -10,7 +8,13 @@ module.exports = {
     "@ant-design/pro-layout",
     "@ant-design/pro-utils",
     "@ant-design/pro-provider",
+    "@ant-design",
+    "rc-util",
     "rc-pagination",
     "rc-picker",
+    "rc-notification",
+    "rc-tooltip",
+    "rc-tree",
+    "rc-table",
   ],
 };
