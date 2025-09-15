@@ -5,7 +5,7 @@ import { Entity, Fields } from "remult"
 })
 
 export class Blog {
-    @Fields.cuid()
+    @Fields.id()
     id = ""
 
     @Fields.string()

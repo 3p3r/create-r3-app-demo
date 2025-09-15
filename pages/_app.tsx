@@ -1,19 +1,19 @@
 import React, { type JSX } from "react";
 import { AppProps } from "next/app";
 import type { NextPage } from "next";
-import { Refine, GitHubBanner } from "@refinedev/core";
+import { Refine } from "@refinedev/core";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
-import { notificationProvider, ThemedLayout } from "@refinedev/antd";
+import { useNotificationProvider, ThemedLayout } from "@refinedev/antd";
 import routerProvider, {
   UnsavedChangesNotifier,
-} from "@refinedev/nextjs-router";
+} from "@refinedev/nextjs-router/pages";
 
 import { remultDataProvider } from "src/provider/dataProvider";
 import { entities } from "src/shared";
 import "@refinedev/antd/dist/reset.css";
 import { Header } from "@components/header";
 import { ColorModeContextProvider } from "@contexts";
-import { authProvider } from "src/authProvider";
+import { authProvider } from "src/provider/authProvider";
 import { liveProvider } from "src/provider/liveProvider";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -24,7 +24,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
+function NextApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
   const renderComponent = () => {
     if (Component.noLayout) {
       return <Component {...pageProps} />;
@@ -39,13 +39,12 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
 
   return (
     <>
-      <GitHubBanner />
       <RefineKbarProvider>
         <ColorModeContextProvider>
           <Refine
             routerProvider={routerProvider}
             dataProvider={remultDataProvider(entities)}
-            notificationProvider={notificationProvider}
+            notificationProvider={useNotificationProvider()}
             authProvider={authProvider}
             resources={[
               {
@@ -57,12 +56,12 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                 meta: {
                   canDelete: true,
                 },
-              }
+              },
             ]}
             options={{
               syncWithLocation: true,
               warnWhenUnsavedChanges: true,
-              liveMode: "auto"
+              liveMode: "auto",
             }}
             liveProvider={liveProvider(entities)}
           >
@@ -76,4 +75,4 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
   );
 }
 
-export default MyApp;
+export default NextApp;

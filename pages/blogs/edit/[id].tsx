@@ -1,6 +1,6 @@
 import { AntdEditInferencer } from "@refinedev/inferencer/antd";
 import { GetServerSideProps } from "next";
-import { authProvider } from "src/authProvider";
+import { authProvider } from "src/provider/authProvider";
 
 export default function BlogsEdit() {
   return <AntdEditInferencer />;

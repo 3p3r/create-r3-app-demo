@@ -1,5 +1,5 @@
-import { LiveProvider, LiveEvent, DataProvider } from "@refinedev/core";
-import { FindOptions, remult, LiveQueryChange } from "remult";
+import { LiveProvider, LiveEvent } from "@refinedev/core";
+import { FindOptions, remult } from "remult";
 import { generateFilter } from "./dataProvider";
 
 export const liveProvider = (entities: any[]): LiveProvider => {
@@ -15,7 +15,7 @@ export const liveProvider = (entities: any[]): LiveProvider => {
         subscribe: ({ channel, types, params, callback }) => {
             const resource = channel.replace("resources/", "");
             const options: FindOptions<any> = {
-                page: (params?.pagination?.current || 1) - 1,
+                page: (params?.pagination?.currentPage || 1) - 1,
                 limit: params?.pagination?.pageSize
             }
             if (params?.sorters) {
